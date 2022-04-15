@@ -1,0 +1,214 @@
+/*
+ * @NOTE: Prepend a `~` to css file paths that are in your node_modules
+ *        See https://github.com/webpack-contrib/sass-loader#imports
+ */
+ *{
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   box-sizing: border-box;
+   color: aliceblue;
+ }
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  overflow-y: hidden;
+  justify-content: center;
+  align-items: center;
+}
+
+/*scrollbar customization*/
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: #313131;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: lightslategrey;
+  border-radius: 3px;
+}
+
+.container{
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 2.5fr 7.5fr;
+  background-color: #141d26;
+}
+
+#searchFilter{
+  background-color: #243447;
+  border-radius: 5px;
+  width: 90%;
+}
+
+.sideBarNote{
+  cursor: pointer;
+  border: 3px solid green;
+  display: grid;
+  grid-template-columns: 6fr 1fr;
+  grid-template-rows: 150px 100px;
+}
+
+.sideBarNoteActive{
+  cursor: pointer;
+  border: 3px solid orange;
+  display: grid;
+  grid-template-columns: 6fr 1fr;
+  grid-template-rows: 150px 100px;
+}
+
+
+.noteButtons{
+
+}
+
+.mainArea{
+  background-color: #243447;
+  height: 95%;
+  width: 95%;
+  border-radius: 5px;
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 1rem;
+  cursor: text;
+  resize: none;
+}
+
+#noteTitle{
+  background-color: #243447;
+  width: 95%;
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 1rem;
+  border-radius: 5px;
+  cursor: text;
+  font-size: 32px;
+}
+.sideBarNoteTitle{
+  overflow-y: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem;
+}
+.sideBar{
+  display: flex;
+  flex-flow: column;
+  height: 100vh;
+}
+
+.folderLabel{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sideBarSelectFolder{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input[type=file]::-webkit-file-upload-button {
+  cursor: pointer; 
+}
+
+#sideBarSelect{
+  cursor: pointer;
+}
+
+.sideBarSearchFilter{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sideBarNotes{
+  overflow-y: scroll;
+}
+
+.sideBarNoteDate{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-row: 2/3;
+  grid-column: 1/3;
+}
+
+.main{
+  height: 100vh;
+  grid-column: 2/3;
+  display: grid;
+  grid-template-rows: 1fr 9fr;
+}
+
+.mainTitle{
+  width: 100%;
+  height: 100%;
+  grid-row: 1/2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.mainContent{
+  width: 100%;
+  height: 100%;
+  grid-row: 2/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+#noteList{
+  overflow-y: auto;
+  overflow-x: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+button {
+  background-color: #c51f5d;/*rgb(29, 121, 151);*/
+  border-radius: 5px;
+  border: none;
+  appearance: none;
+  font-size: 1rem;
+  box-shadow: 0px 8px 28px -6px rgba(24, 39, 75, 0.12),
+    0px 18px 88px -4px rgba(24, 39, 75, 0.14);
+  transition: all ease-in 0.1s;
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+button:hover {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  height: fit-content;
+  width: fit-content;
+  margin: 10px;
+}
+
+a:hover {
+  opacity: 1;
+  text-decoration: none;
+}
+
+.Hello {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
