@@ -24,14 +24,14 @@ contextBridge.exposeInMainWorld('electron', {
       ipcRenderer.send('deleteTextFile', message);
     },
     on(channel, func) {
-      const validChannels = ['ipc-example', 'getTextFiles', 'saveTextFile','addTextFile','updateTextFile'];
+      const validChannels = ['ipc-example', 'getTextFiles', 'saveTextFile','addTextFile','updateTextFile','openUpload','clickAdd','clickSave'];
       if (validChannels.includes(channel)) {
         // Deliberately strip event as it includes `sender`
         ipcRenderer.on(channel, (event, ...args) => func(...args));
       }
     },
     once(channel, func) {
-      const validChannels = ['ipc-example','addTextFile','deleteTextFile','saveTextFile'];
+      const validChannels = ['ipc-example','addTextFile','deleteTextFile','saveTextFile','openUpload','clickAdd','clickSave'];
       if (validChannels.includes(channel)) {
         // Deliberately strip event as it includes `sender`
         ipcRenderer.once(channel, (event, ...args) => func(...args));

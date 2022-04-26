@@ -23,8 +23,8 @@ const SearchFilter: React.FC<Props>= ({notes,setNotes})=>{
   }
   return (
     <div className="sideBarSearchFilter">
-    <input type="search" id="searchFilter" spellCheck="false" placeholder="Seach/Filter" onChange={OnSearchFilterChange}/>
-  </div>
+      <input type="search" id="searchFilter" spellCheck="false" placeholder="Seach/Filter" onChange={OnSearchFilterChange}/>
+    </div>
   )
 }
 

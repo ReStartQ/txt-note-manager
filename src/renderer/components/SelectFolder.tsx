@@ -1,6 +1,7 @@
-import React, { ChangeEvent, HTMLAttributes, useContext, useEffect, useLayoutEffect } from "react";
+import React, { ChangeEvent, HTMLAttributes, useContext, useEffect, useLayoutEffect, useRef } from "react";
 import { ActiveNoteContext } from "renderer/context/ActiveNoteContext";
 import { FilePathContext } from '../context/FilePathContext';
+import { AiFillFileAdd, AiFillFolder } from "react-icons/ai";
 
 declare module 'react' {    
     interface HTMLAttributes<T> {
@@ -109,9 +110,23 @@ const SelectFolder: React.FC<Props>= ({directory,webkitdirectory,notes,setNotes,
     }
 
     
+    useLayoutEffect( () => {
+      window.electron.ipcRenderer.on('openUpload', async (message:any)=>{
+          console.log('upload window opened');
+          document.getElementById('sideBarSelectButton')?.click();
+      });
+    },[]);
+
+    const inputFile = useRef<HTMLInputElement | null>(null);;
+    const onButtonClick = () => {
+      // `current` points to the mounted file input element
+      inputFile.current?.click();
+    };
+
     return (
           <div className="sideBarSelectFolder">
-            <input id="sideBarSelect" directory={directory} webkitdirectory={webkitdirectory} multiple type="file" accept=".txt"  
+            <button id="sideBarSelectButton" onClick={()=>{onButtonClick()}} title="Select Folder"><AiFillFolder/>Select Folder</button>
+            <input id="sideBarSelect" ref={inputFile} directory={directory} webkitdirectory={webkitdirectory} multiple type="file" accept=".txt"  
               onChange={onFileChange}/>
           </div>
     )

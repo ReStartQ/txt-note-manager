@@ -31,7 +31,8 @@
   },
   "build": {
     "productName": "txt-notes",
-    "appId": "org.erb.ElectronReact",
+    "version": "1.0.0",
+    "appId": "txt-notes",
     "asar": true,
     "asarUnpack": "**\\*.{node,dll}",
     "files": [
@@ -74,6 +75,14 @@
       ],
       "icon": "icons/icon.ico"
     },
+    "nsis":{
+      "installerIcon": "icons/icon.ico",
+      "uninstallerIcon": "icons/icon.ico",
+      "uninstallDisplayName": "txt-notes",
+      "license": "LICENSE.txt",
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
     "linux": {
       "target": [
         "AppImage"
@@ -99,23 +108,10 @@
     "url": "git+https://github.com/electron-react-boilerplate/electron-react-boilerplate.git"
   },
   "author": {
-    "name": "Electron React Boilerplate Maintainers",
-    "email": "electronreactboilerplate@gmail.com",
-    "url": "https://electron-react-boilerplate.js.org"
+    "name": "Kevin Hoang",
+    "email": "kevin.hoang322@gmail.com"
   },
-  "contributors": [
-    {
-      "name": "Amila Welihinda",
-      "email": "amilajack@gmail.com",
-      "url": "https://github.com/amilajack"
-    },
-    {
-      "name": "John Tran",
-      "email": "jptran318@gmail.com",
-      "url": "https://github.com/jooohhn"
-    }
-  ],
-  "license": "MIT",
+  "license": "GPL3",
   "bugs": {
     "url": "https://github.com/electron-react-boilerplate/electron-react-boilerplate/issues"
   },
@@ -229,7 +225,8 @@
     "webpack-bundle-analyzer": "^4.5.0",
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.7.1",
-    "webpack-merge": "^5.8.0"
+    "webpack-merge": "^5.8.0",
+    "react-icons": "^4.3.1"
   },
   "dependencies": {
     "electron-debug": "^3.2.0",
@@ -238,6 +235,7 @@
     "history": "^5.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-icons": "^4.3.1",
     "react-router-dom": "^6.2.1",
     "trash": "^8.1.0",
     "uuid": "^8.3.2",

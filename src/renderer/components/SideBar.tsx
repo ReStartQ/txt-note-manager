@@ -7,7 +7,9 @@ import SideBarNotes from "./SideBarNotes";
 import Notification from "./Notification";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { BiSave } from "react-icons/bi";
+import { IoIosSave } from "react-icons/Io";
+import { AiFillFileAdd, AiFillFolder, AiTwotoneSave } from "react-icons/ai";
 interface INotes{
     title:string;
     content:string;
@@ -66,7 +68,6 @@ const SideBar: React.FC<Props> = ({notes, setNotes, title, setTitle, content, se
                 else{
                     toast.success("Saving");
                 }
-
                 //Logic
                 //ActiveNote changes to the current title 
                 //Notes[i] changes to have the properties where, title: current title, content: {content:null, etc}, dateModified: date from nodejs
@@ -76,7 +77,6 @@ const SideBar: React.FC<Props> = ({notes, setNotes, title, setTitle, content, se
                 NotesCopy[notesIndex].title=message[5];
                 NotesCopy[notesIndex].content=content.value;
                 console.log(message[6].mtime);
-                //message[6].toLocaleDateString() + ', ' + message[6].toLocaleTimeString()
                 NotesCopy[notesIndex].dateModified=message[6].mtime.toLocaleDateString() + ', ' + message[6].mtime.toLocaleTimeString();
                 setTitle(message[5].substring(0,message[5].length-4));
                 setNotes(NotesCopy);
@@ -90,6 +90,10 @@ const SideBar: React.FC<Props> = ({notes, setNotes, title, setTitle, content, se
         }
     },[clickedSave]);
 
+
+
+
+
     let addNotes = ()=>{
         //note should be named New Text Document.txt
         //also check for numbers (1), if the name is taken
@@ -97,7 +101,7 @@ const SideBar: React.FC<Props> = ({notes, setNotes, title, setTitle, content, se
         if(filePath!=""){
             console.log(filePath + myNewNote.title);
             window.electron.ipcRenderer.addTextFile(filePath + myNewNote.title);
-            toast.success("Added Note");
+            toast.success("New txt file");
             setClickedAdd(!clickedAdd);
         }
         else{
@@ -117,20 +121,32 @@ const SideBar: React.FC<Props> = ({notes, setNotes, title, setTitle, content, se
         }
         else{
             console.log('nothing to save');
-            toast.warn('No note is selected')
+            toast.warn('No note is selected');
         }
         //also filter notes to find active note and then update it
         //if save with no title change and content change
         //if save with title change and content change
     }
+
+    useLayoutEffect( () => {
+        window.electron.ipcRenderer.on('clickSave', async (message:any)=>{
+            console.log('save click');
+            document.getElementById('saveButton')?.click();
+        });
+        window.electron.ipcRenderer.on('clickAdd', async (message:any)=>{
+            console.log('add click');
+            document.getElementById('addButton')?.click();
+        });
+    },[]);
+
     return (
         <div className='sideBar'> 
-            <SelectFolder directory={""} webkitdirectory={"true"} notes={notes} setNotes={setNotes} title={title} setTitle={setTitle} content={content} setContent={setContent}/>
-            <SearchFilter notes={notes} setNotes={setNotes}/>                
+            <SelectFolder directory={""} webkitdirectory={"true"} notes={notes} setNotes={setNotes} title={title} setTitle={setTitle} content={content} setContent={setContent}/>          
             <div className="sideBarButtons">
-                <button onClick={()=>{addNotes()}}>Add</button>
-                <button onClick={()=>{saveNotes()}}>Save</button>
+                <button id='addButton' className="addButton" onClick={()=>{addNotes()}} title="Add"><AiFillFileAdd/>New File</button>
+                <button id='saveButton' className='saveButton' onClick={()=>{saveNotes()}} title="Save"><IoIosSave/>Save</button>
             </div>
+            <SearchFilter notes={notes} setNotes={setNotes}/>      
             <SideBarNotes notes={notes} setNotes={setNotes} title={title} setTitle={setTitle} content={content} setContent={setContent}/>
             <ToastContainer autoClose={200} position='bottom-right' theme='dark'/>
         </div>

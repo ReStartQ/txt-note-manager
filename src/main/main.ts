@@ -9,7 +9,7 @@
  * `./src/main.js` using webpack. This gives us some performance wins.
  */
 import path from 'path';
-import { app, BrowserWindow, shell, ipcMain } from 'electron';
+import { app, BrowserWindow, shell, ipcMain, dialog } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
@@ -81,7 +81,7 @@ ipcMain.on('saveTextFile', async (event, message:string[])=>{
   if(message[1]!=message[2]+'.txt'){ //check to see if they are the same and if not check what is available
     console.log('save: old file name does not match new file name');
     while(flag==true){
-      if(counter==1){ 
+      if(counter==1){  //on first check,
         if(fs.existsSync(message[0]+message[2]+'.txt')&&message[1]!=message[2]+ ' ('  + counter + ')' + '.txt'){ //if new name exists, then don't make the change and increase counter
           counter++;
         }

@@ -3,7 +3,7 @@ import { ActiveNoteContext } from 'renderer/context/ActiveNoteContext';
 import { FilePathContext } from 'renderer/context/FilePathContext';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { TiDelete } from "react-icons/ti";
 
 interface INotes{
   title:string;
@@ -59,17 +59,17 @@ const SideBarNote: React.FC<Props> = ({notes, setNotes, content, title, setTitle
     }
     console.log(filePath+notes.title);
     window.electron.ipcRenderer.deleteTextFile(filePath+notes.title);
-    toast('Deleted');
+    toast(notes.title + ' has been deleted');
     //then delete in node js
   };
 
   return (
-      <div className={(activeNote==notes.title)?"sideBarNoteActive":"sideBarNote"} onClick={displayInfo}>
+      <div className={(activeNote==notes.title)?"sideBarNoteActive":"sideBarNote"} onClick={displayInfo} title={notes.title}>
         <div className='sideBarNoteTitle'>
-          <h3>{notes.title}</h3>
+          {notes.title}
         </div>
         <div className='noteButtons'>
-          <button className='deleteButton' onClick={()=>removeItem(notes.title)}>Delete</button>
+          <button className='deleteButton' onClick={()=>removeItem(notes.title)} title="Delete"><TiDelete/></button>
         </div>
         <h6 className="sideBarNoteDate">Date Modified: {notes.dateModified}</h6>
         <ToastContainer autoClose={200} position='bottom-right' theme='dark'/>
