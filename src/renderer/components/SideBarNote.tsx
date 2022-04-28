@@ -37,9 +37,13 @@ const SideBarNote: React.FC<Props> = ({notes, setNotes, content, title, setTitle
 
   let displayInfo=(event:any)=>{
     if(event.target.className=='deleteButton'){
-      console.log('delete');
+      console.log('delete' + event.target.className);
+    }
+    else if(event.target.className=='[object SVGAnimatedString]'){
+      console.log('clicked icon');
     }
     else{
+      console.log('clicked ' + event.target.type);
       console.log(notes.content); 
       console.log(notes.title.substring(0, notes.title.length - 4));
       setContent({value: notes.content, caret: -1, target: null});
@@ -52,14 +56,23 @@ const SideBarNote: React.FC<Props> = ({notes, setNotes, content, title, setTitle
 
   const removeItem = (noteTitle: any) => {
     setNotes(fullNotes.filter(myNotes => myNotes.title !== noteTitle)); //filters out the note with that specific title
-    if(activeNote==notes.title){
+    if(activeNote===notes.title){
       setTitle('');
       setContent({value: '', caret: -1, target: null});
       setActiveNote('');
     }
+    else{
+      console.log('not active note deleted');
+      setActiveNote(activeNote);
+      console.log('active note is' + activeNote);
+    }
     console.log(filePath+notes.title);
     window.electron.ipcRenderer.deleteTextFile(filePath+notes.title);
+<<<<<<< Updated upstream
     toast(notes.title + ' has been deleted');
+=======
+    toast.info(notes.title + ' deleted');
+>>>>>>> Stashed changes
     //then delete in node js
   };
 
@@ -69,7 +82,7 @@ const SideBarNote: React.FC<Props> = ({notes, setNotes, content, title, setTitle
           {notes.title}
         </div>
         <div className='noteButtons'>
-          <button className='deleteButton' onClick={()=>removeItem(notes.title)} title="Delete"><TiDelete/></button>
+          <button className='deleteButton' onClick={()=>removeItem(notes.title)} title="Delete"><TiDelete className='deleteIcon'/></button>
         </div>
         <h6 className="sideBarNoteDate">Date Modified: {notes.dateModified}</h6>
         <ToastContainer autoClose={200} position='bottom-right' theme='dark'/>

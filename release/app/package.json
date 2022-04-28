@@ -1,4 +1,5 @@
 {
+<<<<<<< Updated upstream
   "name": "electron-react-boilerplate",
   "version": "4.5.0",
   "description": "A foundation for scalable desktop apps",
@@ -7,6 +8,15 @@
     "name": "Electron React Boilerplate Maintainers",
     "email": "electronreactboilerplate@gmail.com",
     "url": "https://github.com/electron-react-boilerplate"
+=======
+  "name": "txt-note-manager",
+  "version": "1.0.0",
+  "description": "A desktop application that lets you manage your notes and .txt files",
+  "main": "./dist/main/main.js",
+  "author": {
+    "name": "ReStartQ",
+    "email": "kevin.hoang322@gmail.com"
+>>>>>>> Stashed changes
   },
   "scripts": {
     "electron-rebuild": "node -r ts-node/register ../../.erb/scripts/electron-rebuild.js",
