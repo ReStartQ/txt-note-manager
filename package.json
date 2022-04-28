@@ -30,14 +30,9 @@
     ]
   },
   "build": {
-<<<<<<< Updated upstream
     "productName": "txt-notes",
     "version": "1.0.0",
     "appId": "txt-notes",
-=======
-    "productName": "txt-note-manager",
-    "appId": "org.erb.ElectronReact",
->>>>>>> Stashed changes
     "asar": true,
     "asarUnpack": "**\\*.{node,dll}",
     "files": [
@@ -104,13 +99,8 @@
     ],
     "publish": {
       "provider": "github",
-<<<<<<< Updated upstream
-      "owner": "electron-react-boilerplate",
-      "repo": "electron-react-boilerplate"
-=======
       "owner": "ReStartQ",
       "repo": "txt-note-manager"
->>>>>>> Stashed changes
     }
   },
   "repository": {

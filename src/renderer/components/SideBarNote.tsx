@@ -1,25 +1,25 @@
-import React, { useContext, useLayoutEffect, useState } from 'react'
+import React, { useContext, useLayoutEffect, useState } from 'react';
 import { ActiveNoteContext } from 'renderer/context/ActiveNoteContext';
 import { FilePathContext } from 'renderer/context/FilePathContext';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { TiDelete } from "react-icons/ti";
+import { TiDelete } from 'react-icons/ti';
 
-interface INotes{
-  title:string;
-  content:string;
-  dateModified:string;
+interface INotes {
+  title: string;
+  content: string;
+  dateModified: string;
 }
 
-interface Props{
+interface Props {
   notes: INotes;
-  setNotes(notes: INotes[]):void;
-  content:{
-    value:string
+  setNotes(notes: INotes[]): void;
+  content: {
+    value: string;
   };
-  title:string;
-  setTitle(title:string):void;
-  setContent(content:object):void;
+  title: string;
+  setTitle(title: string): void;
+  setContent(content: object): void;
   fullNotes: INotes[];
 }
 
@@ -44,7 +44,7 @@ const SideBarNote: React.FC<Props> = ({notes, setNotes, content, title, setTitle
     }
     else{
       console.log('clicked ' + event.target.type);
-      console.log(notes.content); 
+      console.log(notes.content);
       console.log(notes.title.substring(0, notes.title.length - 4));
       setContent({value: notes.content, caret: -1, target: null});
       setTitle(notes.title.substring(0, notes.title.length - 4));
@@ -52,7 +52,7 @@ const SideBarNote: React.FC<Props> = ({notes, setNotes, content, title, setTitle
       console.log('active note: ' + activeNote);
     }
   }
-  
+
 
   const removeItem = (noteTitle: any) => {
     setNotes(fullNotes.filter(myNotes => myNotes.title !== noteTitle)); //filters out the note with that specific title
@@ -68,11 +68,7 @@ const SideBarNote: React.FC<Props> = ({notes, setNotes, content, title, setTitle
     }
     console.log(filePath+notes.title);
     window.electron.ipcRenderer.deleteTextFile(filePath+notes.title);
-<<<<<<< Updated upstream
-    toast(notes.title + ' has been deleted');
-=======
     toast.info(notes.title + ' deleted');
->>>>>>> Stashed changes
     //then delete in node js
   };
 
@@ -87,7 +83,7 @@ const SideBarNote: React.FC<Props> = ({notes, setNotes, content, title, setTitle
         <h6 className="sideBarNoteDate">Date Modified: {notes.dateModified}</h6>
         <ToastContainer autoClose={200} position='bottom-right' theme='dark'/>
       </div>
-      
+
   )
 }
 
