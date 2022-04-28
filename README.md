@@ -1,1 +1,2 @@
-Coming soon
+#txt-note-manager
+First release coming soon
