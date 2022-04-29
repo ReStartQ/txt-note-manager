@@ -105,7 +105,7 @@ const SideBar: React.FC<Props> = ({notes, setNotes, title, setTitle, content, se
             setClickedAdd(!clickedAdd);
         }
         else{
-            toast.warn('Select a Folder');
+            toast.warn('Select a non-empty Folder');
         }
     }
 

@@ -2,6 +2,8 @@ import React, { ChangeEvent, HTMLAttributes, useContext, useEffect, useLayoutEff
 import { ActiveNoteContext } from "renderer/context/ActiveNoteContext";
 import { FilePathContext } from '../context/FilePathContext';
 import { AiFillFileAdd, AiFillFolder } from "react-icons/ai";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 declare module 'react' {    
     interface HTMLAttributes<T> {
@@ -51,6 +53,7 @@ const SelectFolder: React.FC<Props>= ({directory,webkitdirectory,notes,setNotes,
           myIterator++;
           setNotes(newArr);
           console.log(message[2]);
+          toast.info('Folder selected');
         }
       });
     }, []);
@@ -71,6 +74,13 @@ const SelectFolder: React.FC<Props>= ({directory,webkitdirectory,notes,setNotes,
     }
 
     const onFileChange = (e: ChangeEvent<HTMLInputElement>): void => {
+      console.log('change');
+      if(e.target.files!.length==0){
+        console.log('equals 0');
+      }
+      if(e.target.files!.length>0){
+        console.log('greater than 0');
+      }
       if(e.target.files!.length!==0){
         myNotes=[];
         setNotes(myNotes);
@@ -106,6 +116,7 @@ const SelectFolder: React.FC<Props>= ({directory,webkitdirectory,notes,setNotes,
         setTitle('');
         setContent({value: '', caret: -1, target: null});
         setActiveNote('');
+        toast.warn('No active folder');
       }
     }
 
@@ -128,6 +139,7 @@ const SelectFolder: React.FC<Props>= ({directory,webkitdirectory,notes,setNotes,
             <button id="sideBarSelectButton" onClick={()=>{onButtonClick()}} title="Select Folder"><AiFillFolder/>Select Folder</button>
             <input id="sideBarSelect" ref={inputFile} directory={directory} webkitdirectory={webkitdirectory} multiple type="file" accept=".txt"  
               onChange={onFileChange}/>
+              <ToastContainer autoClose={200} position='bottom-right' theme='dark' />
           </div>
     )
 }

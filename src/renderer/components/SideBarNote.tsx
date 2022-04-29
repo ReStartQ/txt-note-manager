@@ -75,12 +75,12 @@ const SideBarNote: React.FC<Props> = ({notes, setNotes, content, title, setTitle
   return (
       <div className={(activeNote==notes.title)?"sideBarNoteActive":"sideBarNote"} onClick={displayInfo} title={notes.title}>
         <div className='sideBarNoteTitle'>
-          {notes.title}
+          <h5>{notes.title}</h5>
         </div>
         <div className='noteButtons'>
           <button className='deleteButton' onClick={()=>removeItem(notes.title)} title="Delete"><TiDelete className='deleteIcon'/></button>
         </div>
-        <h6 className="sideBarNoteDate">Date Modified: {notes.dateModified}</h6>
+        <h6 className="sideBarNoteDate">{notes.dateModified}</h6>
         <ToastContainer autoClose={200} position='bottom-right' theme='dark'/>
       </div>
 
