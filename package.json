@@ -1,6 +1,6 @@
 {
   "name": "txt-note-manager",
-  "description": "A note taking app",
+  "description": "A desktop application that lets you manage your notes and .txt files",
   "scripts": {
     "build": "concurrently \"npm run build:main\" \"npm run build:renderer\"",
     "build:main": "cross-env NODE_ENV=production TS_NODE_TRANSPILE_ONLY=true webpack --config ./.erb/configs/webpack.config.main.prod.ts",
@@ -30,9 +30,8 @@
     ]
   },
   "build": {
-    "productName": "txt-notes",
-    "version": "1.0.0",
-    "appId": "txt-notes",
+    "productName": "txt-note-manager",
+    "appId": "txt-note-manager",
     "asar": true,
     "asarUnpack": "**\\*.{node,dll}",
     "files": [
@@ -78,7 +77,7 @@
     "nsis":{
       "installerIcon": "icons/icon.ico",
       "uninstallerIcon": "icons/icon.ico",
-      "uninstallDisplayName": "txt-notes",
+      "uninstallDisplayName": "txt-note-manager",
       "license": "LICENSE.txt",
       "oneClick": false,
       "allowToChangeInstallationDirectory": true
@@ -111,7 +110,19 @@
     "name": "Kevin Hoang",
     "email": "kevin.hoang322@gmail.com"
   },
-  "license": "GPL3",
+  "contributors": [
+    {
+      "name": "Amila Welihinda",
+      "email": "amilajack@gmail.com",
+      "url": "https://github.com/amilajack"
+    },
+    {
+      "name": "John Tran",
+      "email": "jptran318@gmail.com",
+      "url": "https://github.com/jooohhn"
+    }
+  ],
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/electron-react-boilerplate/electron-react-boilerplate/issues"
   },

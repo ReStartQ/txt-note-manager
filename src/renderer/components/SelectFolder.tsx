@@ -53,7 +53,6 @@ const SelectFolder: React.FC<Props>= ({directory,webkitdirectory,notes,setNotes,
           myIterator++;
           setNotes(newArr);
           console.log(message[2]);
-          toast.info('Folder selected');
         }
       });
     }, []);
@@ -75,12 +74,6 @@ const SelectFolder: React.FC<Props>= ({directory,webkitdirectory,notes,setNotes,
 
     const onFileChange = (e: ChangeEvent<HTMLInputElement>): void => {
       console.log('change');
-      if(e.target.files!.length==0){
-        console.log('equals 0');
-      }
-      if(e.target.files!.length>0){
-        console.log('greater than 0');
-      }
       if(e.target.files!.length!==0){
         myNotes=[];
         setNotes(myNotes);
@@ -102,10 +95,14 @@ const SelectFolder: React.FC<Props>= ({directory,webkitdirectory,notes,setNotes,
             console.log(filePath);
           }
         }
+        let lastIndex = e.target.files![0].path.toString().lastIndexOf('\\')+1;
+        let myFilePath = e.target.files![0].path.toString().substring(0,lastIndex);
+        setFilePath(myFilePath);
         setNotes(myNotes);
         let newArr = [...notes]; // copying the old datas array 
         setNotes(newArr);
         myIterator=0;
+        toast.info('Folder selected');
       }
       else{
         console.log(e.target.files);

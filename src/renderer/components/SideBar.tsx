@@ -66,7 +66,7 @@ const SideBar: React.FC<Props> = ({notes, setNotes, title, setTitle, content, se
                     toast.warn('Note saved with a different name');
                 }
                 else{
-                    toast.success("Saving");
+                    toast.success("Saving txt file");
                 }
                 //Logic
                 //ActiveNote changes to the current title 
@@ -101,7 +101,7 @@ const SideBar: React.FC<Props> = ({notes, setNotes, title, setTitle, content, se
         if(filePath!=""){
             console.log(filePath + myNewNote.title);
             window.electron.ipcRenderer.addTextFile(filePath + myNewNote.title);
-            toast.success("New txt file");
+            toast.info("New txt file");
             setClickedAdd(!clickedAdd);
         }
         else{
