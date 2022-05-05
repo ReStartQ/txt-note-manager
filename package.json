@@ -30,7 +30,7 @@
     ]
   },
   "build": {
-    "productName": "txt-note-manager",
+    "productName": "txt note manager",
     "appId": "txt-note-manager",
     "asar": true,
     "asarUnpack": "**\\*.{node,dll}",
