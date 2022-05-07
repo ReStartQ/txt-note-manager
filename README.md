@@ -6,7 +6,6 @@ Shows all txt files in a folder of your choice.
 
 Make new txt files and easily switch between them.
 
-## Preview
 ![preview](https://github.com/ReStartQ/txt-note-manager/blob/master/preview/Preview.png)
 
 ## Downloads
