@@ -1,6 +1,6 @@
 # txt note manager
 
-A desktop application that helps you manage your notes and txt files. 
+A window desktop application that helps you manage your notes and txt files. 
 
 Shows all txt files in a folder of your choice. 
 
