@@ -12,6 +12,11 @@ Make new txt files and easily switch between them.
 The app can be downloaded under the releases section of this page or it can be found [here](https://github.com/ReStartQ/txt-note-manager/releases)
 
 
+## Credits
+
+- [electron-react-boilerplate](https://github.com/electron-react-boilerplate/electron-react-boilerplate)
+- [react-toastify](https://github.com/fkhadra/react-toastify)
+
 ## Technologies
 <pre>
 Language:  TypeScript (with TSX), CSS
