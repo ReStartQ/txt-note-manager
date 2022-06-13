@@ -11,6 +11,7 @@ Make new txt files and easily switch between them.
 ## Downloads
 The app can be downloaded under the releases section of this page or it can be found [here](https://github.com/ReStartQ/txt-note-manager/releases)
 
+The exe file labeled setup is for installing it on your computer. The zip file labeled portable is a stand alone version of the app.
 
 ## Credits
 
