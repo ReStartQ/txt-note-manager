@@ -20,6 +20,6 @@ The exe file labeled setup is for installing it on your computer. The zip file l
 
 ## Technologies
 <pre>
-Language:  TypeScript (with TSX), CSS
+Language:  TypeScript (with TSX), HTML, CSS
 Frameworks:  React, Electron.js
 </pre>
