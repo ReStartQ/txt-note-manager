@@ -13,6 +13,8 @@ The app can be downloaded under the releases section of this page or it can be f
 
 The exe file labeled setup is for installing it on your computer. The zip file labeled portable is a stand alone version of the app.
 
+Note: There is no auto update function implemented yet, so check back for future releases
+
 ## Credits
 
 - [electron-react-boilerplate](https://github.com/electron-react-boilerplate/electron-react-boilerplate)
