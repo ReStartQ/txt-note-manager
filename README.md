@@ -18,6 +18,9 @@ The exe file labeled setup is for installing it on your computer. The zip file l
 - [electron-react-boilerplate](https://github.com/electron-react-boilerplate/electron-react-boilerplate)
 - [react-toastify](https://github.com/fkhadra/react-toastify)
 
+## Contributing
+To setup in a development environment, follow the instructions [here](https://github.com/ReStartQ/txt-note-manager/blob/master/Info/contributing.md)
+
 ## Technologies
 <pre>
 Language:  TypeScript (with TSX), HTML, CSS
